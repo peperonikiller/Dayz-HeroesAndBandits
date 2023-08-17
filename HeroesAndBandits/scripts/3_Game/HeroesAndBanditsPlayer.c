@@ -261,6 +261,22 @@ class HeroesAndBanditsPlayer : RestCallback
 				}
 			}
 			return statTotal;
+		} else if ( statName == "Fisher" ){
+			for ( int p =0; p < Stats.Count(); p++ )
+			{
+				if ( Stats.Get(p).Name.Contains("fish") ){
+					statTotal = statTotal + Stats.Get(p).Stat;
+				}
+			}
+			return statTotal;
+		} else if ( statName == "Archery" ){
+			for ( int y =0; y < Stats.Count(); y++ )
+			{
+				if ( Stats.Get(y).Name.Contains("archery") ){
+					statTotal = statTotal + Stats.Get(y).Stat;
+				}
+			}
+			return statTotal;
 		} else if ( statName == "Raid" ) {
 			for ( int l =0; l < Stats.Count(); l++ )
 			{

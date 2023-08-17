@@ -2,7 +2,7 @@
 <modded_inputs>
     <inputs>
         <actions>
-            <input name="UAHeroesAndBanditsPanel" loc="Heroes And Bandits Panel" />
+            <input name="UAHeroesAndBanditsPanel" loc="Humanity Panel" />
         </actions>
     </inputs>
     <preset>

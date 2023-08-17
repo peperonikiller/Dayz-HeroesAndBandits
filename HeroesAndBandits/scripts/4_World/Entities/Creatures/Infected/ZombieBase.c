@@ -1,24 +1,19 @@
 modded class ZombieBase
 {
-	override void EEKilled(Object killer)
-    {
-
-        super.EEKilled(killer);
-		if (GetGame().IsServer()){
+	protected void tickZombie(Object killer) 
+	{
+		if (GetGame().IsServer()) {
 			PlayerBase sourcePlayer;
-			if (killer.IsMan())
-			{
+			if (killer.IsMan()) {
 				if (killer.IsInherited(SurvivorBase))
 				{
 					sourcePlayer = PlayerBase.Cast(killer);
 				}
-			}else if (killer.IsWeapon())
-			{
+			} else if (killer.IsWeapon()) {
 				sourcePlayer = PlayerBase.Cast(EntityAI.Cast(killer).GetHierarchyParent());
-			}else if (killer.IsMeleeWeapon())
-			{
+			} else if (killer.IsMeleeWeapon()) {
 				sourcePlayer = PlayerBase.Cast(EntityAI.Cast(killer).GetHierarchyParent());
-			} else if (killer.IsTransport()){
+			} else if (killer.IsTransport()) {
 				CarScript vehicle;
 				if (Class.CastTo(vehicle, killer))
 				{
@@ -30,13 +25,22 @@ modded class ZombieBase
 			} else {
 				return;
 			}
-			
+
 			if (!sourcePlayer){
-			}else{
+			} else {
 				string sourcePlayerID = sourcePlayer.GetIdentity().GetPlainId();
 				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLaterByName(GetHeroesAndBandits(), "NewPlayerAction", 1, false, new Param2<string, string>(sourcePlayerID, "ZombieKill"));
 			}
 		}
+	}
+
+	override void EEKilled(Object killer)
+    {
+
+        super.EEKilled(killer);
+		tickZombie(killer);
+		//tickle check
+		
     }
 	
 	override void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef){	

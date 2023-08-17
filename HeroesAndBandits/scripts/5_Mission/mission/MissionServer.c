@@ -159,10 +159,22 @@ modded class MissionServer extends MissionBase
 				statExsit = true;
 				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "Hunt");
 				statDisplayName = "Hunt";
-			}  else if ( statname ==  "medic" ){
+			} else if ( statname ==  "medic" ){
 				statExsit = true;
 				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "Medic");
 				statDisplayName = "Medic";
+			} else if ( statname ==  "catch_fish" ){
+				statExsit = true;
+				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "catch_fish");
+				statDisplayName = "Fish Caught";
+			} else if ( statname ==  "archery_bowCrafting" ){
+				statExsit = true;
+				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "archery_bowCrafting");
+				statDisplayName = "Bows Crafted";
+			} else if ( statname ==  "archery_boltCraft" ){
+				statExsit = true;
+				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "archery_boltCraft");
+				statDisplayName = "Arrows Crafted";
 			} else if ( statname ==  "raid" ||  statname ==  "raids" ){
 				statExsit = true;
 				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "Raid");

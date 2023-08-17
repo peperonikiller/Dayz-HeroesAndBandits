@@ -1,6 +1,22 @@
 modded class PlayerBase extends ManBase
 {
+	#ifdef JM_COT
+	private bool m_JMHasGodMode;
 	
+	override void COTSetGodMode( bool mode, bool preference = true )
+	{
+		if ( GetGame().IsServer() )
+		{
+			if (preference)
+				m_COT_GodMode_Preference = mode;
+			else if (mode)
+				m_COT_GodMode_Preference = !GetAllowDamage();
+
+			SetAllowDamage( !mode );
+			m_JMHasGodMode = mode;
+		}
+	}
+	#endif
 	ref array< int > m_HeroesAndBandits_InZones = new ref array< int >; //For new Zones
 	private bool  m_HeroesAndBandits_Killed = false;
 
@@ -553,9 +569,7 @@ modded class PlayerBase extends ManBase
 		bool killedByZombie = false;
 		int deathType = habDeathType.ByUnknown;
 		
-		if (targetPlayer && targetPlayer.GetIdentity()) {
-			targetPlayerID = targetPlayer.GetIdentity().GetPlainId();
-		}
+
 		
 		m_HeroesAndBandits_Killed = true; //Pervent kills gettting counted twice with Explosions
 		if (GetGame().IsServer() && (GetIdentity() || m_HeroesAndBandits_IsGuard)){

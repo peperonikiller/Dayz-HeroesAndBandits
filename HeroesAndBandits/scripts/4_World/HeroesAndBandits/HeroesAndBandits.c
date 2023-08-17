@@ -71,6 +71,16 @@ class HeroesAndBandits
 	
 	void NewPlayerAction(string playerID, string action)
 	{
+		if(action == "ZombieKill"){
+            if (GetPlayerHeroOrBandit(playerID) == "hero"){
+                action = "HeroVsZombieKill";
+            } else if (GetPlayerHeroOrBandit(playerID) == "bandit"){
+                action = "BanditVsZombieKill";
+            } else {                
+                action = "BambiVsZombieKill";
+            }
+        }
+
 		for ( int i = 0; i < HeroesAndBanditsPlayers.Count(); i++ )
 		{
 			HeroesAndBanditsPlayer p = HeroesAndBanditsPlayers.Get(i);
@@ -199,7 +209,7 @@ class HeroesAndBandits
 	}
 	
 	void TriggerSucideFeed(string sourcePlayerID){
-		habPrint("Sucide Kill Feed Player: " + sourcePlayerID, "Debug");
+		habPrint("Suicide Kill Feed Player: " + sourcePlayerID, "Debug");
 		if (GetHeroesAndBanditsSettings().SucideFeed){
 			PlayerBase sourcePlayer = PlayerBase.Cast(habGetPlayerBaseByID(sourcePlayerID));
 			if (sourcePlayer) {

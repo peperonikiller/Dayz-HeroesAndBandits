@@ -1,7 +1,7 @@
 class HeroesAndBanditsConfigActions
 { 
 	//Default Values
-	string ConfigVersion = "7";
+	string ConfigVersion = "8";
 	
 	int NotificationMessageTime = 10;
 	
@@ -26,6 +26,9 @@ class HeroesAndBanditsConfigActions
 						}
 						if(ConfigVersion == "6"){
 							DoV7Upgrade();
+						}
+						if(ConfigVersion == "7"){
+							DoV8Upgrade();
 						}
 				}else{ //File does not exist create file
 					createDefaults();
@@ -198,6 +201,15 @@ class HeroesAndBanditsConfigActions
 		addAction( "HuntAnimal_SusScrofa", "hunter", "none", 25, false);
 		addAction( "HuntAnimal_LepusEuropaeus", "hunter", "none", 25, false);
 		addAction( "HuntAnimal_UrsusArctos", "hunter", "none", 200, false);
+		addAction( "catch_fish", "fisher", "none", 15, true);
+		addAction( "archery_boltCraft", "archery", "none", 1, true);
+		addAction( "fish_rod_craft", "fisher", "none", 10, true);
+		addAction( "gun_clean", "gunsmith", "none", 10, true);
+		addAction( "craft_fish_bait", "fisher", "none", 10, true);
+		addAction( "BambiVsZombieKill", "hero", "none", 5, false);
+		addAction( "BanditVsZombieKill", "bandit", "none", 5, false);
+		addAction( "HeroVsZombieKill", "hero", "none", 5, false);
+		addAction( "water_plant_farm", "farming", "none", 10, false);
 		
 		AggressorActions.Insert( new ref habAggressorAction("ShotFired", 75));
 		AggressorActions.Insert( new ref habAggressorAction("HitZombie", -75));
@@ -231,5 +243,18 @@ class HeroesAndBanditsConfigActions
 		AggressorActions.Insert( new ref habAggressorAction("HitAnimal", -75));
 		Save();
 	}
-	
+
+	void DoV8Upgrade(){
+		ConfigVersion = "8";
+		addAction( "catch_fish", "fisher", "none", 15, true);
+		addAction( "archery_boltCraft", "archery", "none", 1, true);
+		addAction( "fish_rod_craft", "fisher", "none", 10, true);
+		addAction( "gun_clean", "gunsmith", "none", 10, true);
+		addAction( "craft_fish_bait", "fisher", "none", 10, true);
+		addAction( "BambiVsZombieKill", "hero", "none", 5, false);
+		addAction( "BanditVsZombieKill", "bandit", "none", 5, false);
+		addAction( "HeroVsZombieKill", "hero", "none", 5, false);
+		addAction( "water_plant_farm", "farming", "none", 10, false);
+		Save();
+	}	
 };

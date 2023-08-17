@@ -5,7 +5,10 @@ class CfgPatches
 		requiredVersion=0.1;
 		requiredAddons[]={
 			"HABDefines",
-			"JM_CF_Scripts"
+			"JM_CF_Scripts",
+			"RPC_Scripts",
+			"DZ_Data",
+			"DayZExpansion_AI_Scripts"
 		};
 	};
 };
@@ -21,7 +24,7 @@ class CfgMods
         credits="DaemonForge";
         author="DaemonForge";
         authorID="0";
-        version="1.2";
+        version="1.3";
         type="mod";
 		inputs = "HeroesAndBandits/data/Inputs.xml";
 	    dependencies[]={ "Game", "World", "Mission" };

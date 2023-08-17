@@ -7,7 +7,7 @@
 				if ( habLastHitBy ){
 					if ( habLastHitBy != "null")
 					{
-						habPrint("Player with ID " + habLastHitBy + " Destoryed " + GetType(), "Debug");
+						habPrint("Player with ID " + habLastHitBy + " Destroyed " + GetType(), "Debug");
 						GetHeroesAndBandits().NewPlayerAction(habLastHitBy, GetType()+"Raid");
 					}
 				} else {

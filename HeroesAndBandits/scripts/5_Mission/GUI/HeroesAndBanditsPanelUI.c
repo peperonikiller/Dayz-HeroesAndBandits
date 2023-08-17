@@ -10,6 +10,8 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 	RichTextWidget		m_PlayerKills;
 	RichTextWidget		m_ZombieKills;
 	RichTextWidget		m_Medic;
+	RichTextWidget		m_Fisher;
+	RichTextWidget		m_Archery;
 	RichTextWidget		m_Raid;
 	RichTextWidget		m_Hunts;
 	RichTextWidget		m_Sucides;
@@ -26,6 +28,8 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 		m_PlayerKills	= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABPlayerKills" ) );
 		m_ZombieKills	= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABZombieKills" ) );
 		m_Medic			= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABMedic" ) );
+		m_Fisher		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABFisher" ) );
+		m_Archery		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABArchery" ) );
 		m_Raid			= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABRaid" ) );
 		m_Hunts			= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABHunt" ) );
 		m_Sucides		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABSucides" ) );
@@ -54,6 +58,14 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 		m_ZombieKills.SetText("#HAB_ZOMBIEKILLS: " + g_HeroesAndBanditsPlayer.getStat("ZombieKill"));
 		
 		m_Medic.SetText("#HAB_MEDIC: " + g_HeroesAndBanditsPlayer.getStat("Medic"));
+
+		m_Fisher.SetText("#HAB_FISHER: " + g_HeroesAndBanditsPlayer.getStat("Fisher"));
+
+		m_Archery.SetText("#HAB_ARCHERY: " + g_HeroesAndBanditsPlayer.getStat("Archery"));
+
+		m_Archery.SetText("#HAB_GUNSMITH: " + g_HeroesAndBanditsPlayer.getStat("Gunsmith"));
+
+		m_Archery.SetText("#HAB_FARMING: " + g_HeroesAndBanditsPlayer.getStat("Farming"));
 		
 		m_Raid.SetText("#HAB_RAID: " + g_HeroesAndBanditsPlayer.getStat("Raid"));
 		
@@ -91,6 +103,14 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 		m_ZombieKills.SetText("#HAB_ZOMBIEKILLS: " + g_HeroesAndBanditsPlayer.getStat("ZombieKill"));
 		
 		m_Medic.SetText("#HAB_MEDIC_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Medic"));
+
+		m_Fisher.SetText("#HAB_FISHER_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Fisher"));
+
+		m_Archery.SetText("#HAB_ARCHERY_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Archery"));
+
+		m_Archery.SetText("#HAB_GUNSMITH_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Gunsmith"));
+
+		m_Archery.SetText("#HAB_FARMING_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Farming"));
 		
 		m_Raid.SetText("#HAB_RAID: " + g_HeroesAndBanditsPlayer.getStat("Raid"));
 		

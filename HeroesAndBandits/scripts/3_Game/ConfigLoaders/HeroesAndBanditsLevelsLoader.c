@@ -157,11 +157,13 @@ class HeroesAndBanditsConfigLevels
 		addLevel( "Hunter Lv3", "hunter", "HeroesAndBandits/gui/images/Hunterlv3.paa", 12001, 20000);
 		addLevel( "Hunter Lv4", "hunter", "HeroesAndBandits/gui/images/Hunterlv4.paa", 20001, 50000);
 		addLevel( "Hunter Lv5", "hunter", "HeroesAndBandits/gui/images/Hunterlv5.paa", 50001, -1);
+		addLevel( "Fisher Lv1", "fisher", "HeroesAndBandits/gui/images/Fisherlv1.paa", 100, 4000);
 		
 		addAffinity("hero", "#HAB_HERO", "HeroesAndBandits/gui/images/Hero.paa");
 		addAffinity("bandit", "#HAB_BANDIT", "HeroesAndBandits/gui/images/Bandit.paa");
 		addAffinity("medic", "#HAB_MEDIC", "HeroesAndBandits/gui/images/Medic.paa");
 		addAffinity("hunter", "#HAB_HUNTER", "HeroesAndBandits/gui/images/Hunter.paa");
+		addAffinity("fisher", "#HAB_FISHER", "HeroesAndBandits/gui/images/Fisher.paa");
 		TStringArray banditOnlyItems = {"BandanaMask_RedPattern", "BandanaMask_BlackPattern","BandanaMask_CamoPattern","BandanaMask_GreenPattern", "BandanaMask_PolkaPattern","Bandana_Blue", "Bandana_Pink", "Bandana_Yellow","Bandana_RedPattern","Bandana_BlackPattern","Bandana_CamoPattern","Bandana_GreenPattern","Bandana_PolkaPattern"};
 		getAffinity("hero").addItemBlackList(-1, -1, "all", banditOnlyItems );
 		DefaultAffinity.addItemBlackList(-1, -1, "all", banditOnlyItems);
