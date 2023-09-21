@@ -1,3 +1,12 @@
+# Peperonikiller's Edits
+These are most/what I remember that I have added.
+- HaB should no longer complain about CoT God Mode.
+- Expansion AI no longer counts zombie kills for all players
+- Expansion AI actions.json entry for detecting AI kills (will be expanded upon further)
+- Added more stat detection and secondary affinities (fishing/farming/and more... more stats/affinities to come) for more dynamic loadout options
+- I haven't messed with zones yet, and I'm not smart enough to.. but when I get there I'll do my best.
+I've been trying to get a hold of DaemonForge to see if it's possible I can publish this as an updated version, really just waiting to hear back from him but until then I'll do my best to keep this page updated. Help is also appreciated. 
+
 # Heroes and Bandits Humanity Mod
 
 This mod add humanity to Dayz in a very expandable way, allow for server owners and mod creators to dictate almost everything including the ability to create customized Levels and Actions, the ability to create customized zones for exclusive use based on the players stats
