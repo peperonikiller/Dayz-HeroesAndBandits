@@ -613,6 +613,10 @@ modded class PlayerBase extends ManBase
 						habPrint("Player " + targetPlayerID + " Killed by " + weaponName + " placed by " + sourcePlayerID, "Debug");
 					}
 				}
+				bool ai = eAIBase.Cast(killer) != null;
+				else if (ai) {
+					habPrint("Player " + targetPlayerID + " Killed by " + weaponName + " AI " + sourcePlayerID,"Debug");
+				}
 			#endif
 			else if (killer.IsInherited(ZombieBase)){
 				killedByZombie = true;

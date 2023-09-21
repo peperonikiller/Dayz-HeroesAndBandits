@@ -175,6 +175,14 @@ modded class MissionServer extends MissionBase
 				statExsit = true;
 				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "archery_boltCraft");
 				statDisplayName = "Arrows Crafted";
+			} else if ( statname ==  "gun_clean" ){
+				statExsit = true;
+				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "gun_clean");
+				statDisplayName = "Weapon Cleaning Kits Used";
+			} else if ( statname ==  "farm" ){
+				statExsit = true;
+				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "farm");
+				statDisplayName = "Total Farming Actions";
 			} else if ( statname ==  "raid" ||  statname ==  "raids" ){
 				statExsit = true;
 				statTotal = statTotal + GetHeroesAndBandits().GetPlayerStat(playerID, "Raid");

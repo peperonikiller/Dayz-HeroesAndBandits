@@ -176,6 +176,7 @@ class HeroesAndBanditsConfigLevels
 		DefaultAffinity.addItemBlackList(-1, -1, "all", banditOnlyItems);
 		getAffinity("hero").Image = "HeroesAndBandits/gui/images/Hero.paa";
 		getAffinity("bandit").Image = "HeroesAndBandits/gui/images/Bandit.paa";
+		//getAffinity("fisher").Image = "HeroesAndBandits/gui/images/Fisher.paa";
 		DefaultAffinity.Image = "HeroesAndBandits/gui/images/Bambi.paa";
 		Save();
 	}

@@ -2,11 +2,14 @@ modded class ZombieBase
 {
 	protected void tickZombie(Object killer) 
 	{
+		
 		if (GetGame().IsServer()) {
 			PlayerBase sourcePlayer;
 			if (killer.IsMan()) {
+				
 				if (killer.IsInherited(SurvivorBase))
 				{
+					
 					sourcePlayer = PlayerBase.Cast(killer);
 				}
 			} else if (killer.IsWeapon()) {
@@ -28,6 +31,10 @@ modded class ZombieBase
 
 			if (!sourcePlayer){
 			} else {
+				#ifdef EXPANSIONMODAI
+				bool ai = eAIBase.Cast(killer) != null;
+				if (ai) return;
+				#endif
 				string sourcePlayerID = sourcePlayer.GetIdentity().GetPlainId();
 				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLaterByName(GetHeroesAndBandits(), "NewPlayerAction", 1, false, new Param2<string, string>(sourcePlayerID, "ZombieKill"));
 			}
@@ -36,11 +43,12 @@ modded class ZombieBase
 
 	override void EEKilled(Object killer)
     {
-
-        super.EEKilled(killer);
+		super.EEKilled(killer);
+		#ifdef EXPANSIONMODAI
+		bool ai = eAIBase.Cast(killer) != null;
+		if (ai) return;
+		#endif
 		tickZombie(killer);
-		//tickle check
-		
     }
 	
 	override void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef){	

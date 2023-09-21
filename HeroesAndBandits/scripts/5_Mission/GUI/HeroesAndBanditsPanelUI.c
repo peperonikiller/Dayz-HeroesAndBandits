@@ -11,6 +11,8 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 	RichTextWidget		m_ZombieKills;
 	RichTextWidget		m_Medic;
 	RichTextWidget		m_Fisher;
+	RichTextWidget		m_Gunsmith;
+	RichTextWidget		m_Farming;
 	RichTextWidget		m_Archery;
 	RichTextWidget		m_Raid;
 	RichTextWidget		m_Hunts;
@@ -28,6 +30,8 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 		m_PlayerKills	= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABPlayerKills" ) );
 		m_ZombieKills	= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABZombieKills" ) );
 		m_Medic			= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABMedic" ) );
+		m_Gunsmith		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABGunsmith" ) );
+		m_Farming		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABFarming" ) );
 		m_Fisher		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABFisher" ) );
 		m_Archery		= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABArchery" ) );
 		m_Raid			= RichTextWidget.Cast( layoutRoot.FindAnyWidget( "HABRaid" ) );
@@ -63,9 +67,9 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 
 		m_Archery.SetText("#HAB_ARCHERY: " + g_HeroesAndBanditsPlayer.getStat("Archery"));
 
-		m_Archery.SetText("#HAB_GUNSMITH: " + g_HeroesAndBanditsPlayer.getStat("Gunsmith"));
+		m_Gunsmith.SetText("#HAB_GUNSMITH: " + g_HeroesAndBanditsPlayer.getStat("Gunsmith"));
 
-		m_Archery.SetText("#HAB_FARMING: " + g_HeroesAndBanditsPlayer.getStat("Farming"));
+		m_Farming.SetText("#HAB_FARMING: " + g_HeroesAndBanditsPlayer.getStat("Farming"));
 		
 		m_Raid.SetText("#HAB_RAID: " + g_HeroesAndBanditsPlayer.getStat("Raid"));
 		
@@ -108,9 +112,9 @@ class HeroesAndBanditsPanelUI extends UIScriptedMenu
 
 		m_Archery.SetText("#HAB_ARCHERY_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Archery"));
 
-		m_Archery.SetText("#HAB_GUNSMITH_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Gunsmith"));
+		m_Archery.SetText("#HAB_GUNSMITH_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Gun"));
 
-		m_Archery.SetText("#HAB_FARMING_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Farming"));
+		m_Archery.SetText("#HAB_FARMING_ACTIONS: " + g_HeroesAndBanditsPlayer.getStat("Farm"));
 		
 		m_Raid.SetText("#HAB_RAID: " + g_HeroesAndBanditsPlayer.getStat("Raid"));
 		

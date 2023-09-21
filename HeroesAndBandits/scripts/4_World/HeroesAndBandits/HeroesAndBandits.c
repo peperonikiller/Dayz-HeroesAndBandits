@@ -81,6 +81,18 @@ class HeroesAndBandits
             }
         }
 
+		#ifdef EXPANSIONMODAI
+		if(action == "eAIKill"){
+            if (GetPlayerHeroOrBandit(playerID) == "hero"){
+                action = "HeroVseAIKill";
+            } else if (GetPlayerHeroOrBandit(playerID) == "bandit"){
+                action = "BanditVseAIKill";
+            } else {                
+                action = "BambiVseAIKill";
+            }
+        }
+		#endif
+
 		for ( int i = 0; i < HeroesAndBanditsPlayers.Count(); i++ )
 		{
 			HeroesAndBanditsPlayer p = HeroesAndBanditsPlayers.Get(i);

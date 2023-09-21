@@ -1,24 +1,23 @@
-modded class AnimalBase
+#ifdef EXPANSIONMODAI
+modded class eAIBase
 {
-	override void EEKilled(Object killer)
-    {
-
-        super.EEKilled(killer);
-		if (GetGame().IsServer()){
+	protected void tickAI(Object killer) 
+	{
+		
+		if (GetGame().IsServer()) {
 			PlayerBase sourcePlayer;
-			if (killer.IsMan())
-			{
+			if (killer.IsMan()) {
+				
 				if (killer.IsInherited(SurvivorBase))
 				{
+					
 					sourcePlayer = PlayerBase.Cast(killer);
 				}
-			}else if (killer.IsWeapon())
-			{
+			} else if (killer.IsWeapon()) {
 				sourcePlayer = PlayerBase.Cast(EntityAI.Cast(killer).GetHierarchyParent());
-			}else if (killer.IsMeleeWeapon())
-			{
+			} else if (killer.IsMeleeWeapon()) {
 				sourcePlayer = PlayerBase.Cast(EntityAI.Cast(killer).GetHierarchyParent());
-			} else if (killer.IsTransport()){
+			} else if (killer.IsTransport()) {
 				CarScript vehicle;
 				if (Class.CastTo(vehicle, killer))
 				{
@@ -30,15 +29,25 @@ modded class AnimalBase
 			} else {
 				return;
 			}
-			
+
 			if (!sourcePlayer){
-			}else{
-				string actionName = "Hunt" + GetType();
-				habPrint("Player Killed Animal of type" + GetType(), "Debug");
+			} else {
+				#ifdef EXPANSIONMODAI
+				bool ai = eAIBase.Cast(killer) != null;
+				if (ai) return;
+				#endif
 				string sourcePlayerID = sourcePlayer.GetIdentity().GetPlainId();
-				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLaterByName(GetHeroesAndBandits(), "NewPlayerAction", 1, false, new Param2<string, string>(sourcePlayerID, actionName));
+				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLaterByName(GetHeroesAndBandits(), "NewPlayerAction", 1, false, new Param2<string, string>(sourcePlayerID, "eAIKill"));
 			}
 		}
+	}
+
+	override void EEKilled(Object killer)
+    {
+		super.EEKilled(killer);
+		bool ai = eAIBase.Cast(killer) != null;
+		if (ai) return;
+		tickAI(killer);
     }
 	
 	override void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef){	
@@ -46,8 +55,9 @@ modded class AnimalBase
 		PlayerBase player;
 		if (Class.CastTo(player, EntityAI.Cast(source).GetHierarchyParent())){
 			if (player.GetIdentity() && source.IsWeapon()){
-				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLater(GetHeroesAndBandits().NewAggressorAction, 200, false, player, "HitAnimal", this); //Delay to make sure shot is registered prior to registering zombie hit to ensure that it is canceled out
+				GetGame().GetCallQueue( CALL_CATEGORY_SYSTEM ).CallLater(GetHeroesAndBandits().NewAggressorAction, 200, false, player, "KillPlayer", this); //Delay to make sure shot is registered prior to registering zombie hit to ensure that it is canceled out
 			}
 		}
 	}
 };
+#endif
